@@ -1,0 +1,14 @@
+.input__list {
+  border: solid 1px var(--color-primary--dark);
+
+  display: grid;
+
+  grid-template-columns: 1fr repeat(3, minmax(min-content, 1fr)) 1fr;
+  grid-template-rows: auto;
+}
+
+.input__list--type {
+}
+
+.input__list--options {
+}

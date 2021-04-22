@@ -1,0 +1,9 @@
+.section__header-header {
+  font-size: 5rem;
+  justify-self: center;
+  align-self: center;
+  letter-spacing: 0.2rem;
+  color: var(--color-primary);
+  font-weight: 300;
+  border: solid 0.2rem var(--color-primary--dark);
+}
