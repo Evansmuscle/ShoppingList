@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "./components/Header";
 import "./App.css";
@@ -19,15 +19,31 @@ const styleInputForm: React.CSSProperties = {
 const styleInputList: React.CSSProperties = {
   gridColumn: "6 / 9",
   gridRow: "4 / 8",
+  overflow: "scroll",
 };
 
-const App: React.FC = () => {
+const styleFooter: React.CSSProperties = {
+  gridColumn: "1 / -1",
+  gridRow: "8 / 9",
+};
+
+const App = () => {
+  const [dataForm, setDataForm] = useState(Array);
+
+  useEffect(() => {
+    console.log(dataForm);
+  }, [dataForm]);
+
   return (
     <div className="grid-container">
       <Header styleProp={styleHeader} />
-      <InputForm styleProp={styleInputForm} />
-      <InputList styleProp={styleInputList} />
-      <Footer />
+      <InputForm
+        styleProp={styleInputForm}
+        data={dataForm}
+        setData={setDataForm}
+      />
+      <InputList styleProp={styleInputList} formData={dataForm} />
+      <Footer styleProp={styleFooter} />
     </div>
   );
 };
