@@ -1,5 +1,7 @@
 import React, { SetStateAction, useState } from "react";
 
+import nextId from "react-id-generator";
+
 import "./InputForm.css";
 
 type AppProps = {
@@ -15,7 +17,7 @@ const InputForm = ({ styleProp, setData }: AppProps) => {
   const submitHandler = (event: any): any => {
     event.preventDefault();
 
-    setData((data) => [...data, { itemType, itemName }]);
+    setData((data) => [...data, { id: nextId(), itemType, itemName }]);
   };
 
   return (

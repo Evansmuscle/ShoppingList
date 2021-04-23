@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
-// import InputItem from "./InputItem";
-
-import store from "store";
+import React from "react";
 
 import "./InputList.css";
 
@@ -16,16 +13,12 @@ const InputList = ({
   formData,
   localList,
 }: AppProps): JSX.Element => {
-  // useEffect(() => {
-  //   store.set("List of Items", localList);
-  // }, []);
-
   return (
     <div style={styleProp} className="input__list">
       {localList
         ? localList.map((el) => {
             return (
-              <div key={el.itemName} className="input-item">
+              <div key={el.id} className="input-item">
                 <h3 className="input__list-label input__list--item-name-label">
                   Item Name:
                 </h3>
@@ -57,7 +50,6 @@ const InputList = ({
             <p className="input__list-item input__list--item-type">
               {el.itemType[0].toUpperCase(0) + el.itemType.slice(1)}
             </p>
-            <button>&#9932;</button>
           </div>
         );
       })}
