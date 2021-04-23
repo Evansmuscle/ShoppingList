@@ -16,6 +16,7 @@ const InputForm = ({ styleProp, data, setData }: AppProps) => {
     event.preventDefault();
 
     setData((data) => [...data, { itemType, itemName }]);
+    localStorage.setItem("List Data", data.toString());
   };
 
   return (
@@ -27,16 +28,18 @@ const InputForm = ({ styleProp, data, setData }: AppProps) => {
         >
           Choose Item Type:
         </label>
-        <select
-          name="type"
-          onChange={(e) => setItemType(e.currentTarget.value)}
-          className="input__form-content--input input__form-content--input-1"
-        >
-          <option value={"food"}>Food</option>
-          <option value={"hygiene"}>Hygiene</option>
-          <option value={"clothing"}>Clothing</option>
-          <option value={"drinks"}>Drinks</option>
-        </select>
+        <div className="select-wrapper">
+          <select
+            name="type"
+            onChange={(e) => setItemType(e.currentTarget.value)}
+            className="input__form-content--input input__form-content--input-1"
+          >
+            <option value={"food"}>Food</option>
+            <option value={"hygiene"}>Hygiene</option>
+            <option value={"clothing"}>Clothing</option>
+            <option value={"drinks"}>Drinks</option>
+          </select>
+        </div>
       </div>
       <div className="input__form--content input__form--content-2">
         <label

@@ -1,5 +1,5 @@
 import React from "react";
-import InputItem from "./InputItem";
+// import InputItem from "./InputItem";
 
 import "./InputList.css";
 
@@ -13,12 +13,20 @@ const InputList = ({ styleProp, formData }: AppProps): JSX.Element => {
     <div style={styleProp} className="input__list">
       {formData.map((el) => {
         return (
-          <React.Fragment key={el.itemName}>
-            <h3>Item Name:</h3>
-            <p>{el.itemName}</p>
-            <h3>Item Type:</h3>
-            <p>{el.itemType[0].toUpperCase(0) + el.itemType.slice(1)}</p>
-          </React.Fragment>
+          <div key={el.itemName} className="input-item">
+            <h3 className="input__list-label input__list--item-name-label">
+              Item Name:
+            </h3>
+            <p className="input__list-item input__list--item-name">
+              {el.itemName}
+            </p>
+            <h3 className="input__list-label input__list--item-type-label">
+              Item Type:
+            </h3>
+            <p className="input__list-item input__list--item-type">
+              {el.itemType[0].toUpperCase(0) + el.itemType.slice(1)}
+            </p>
+          </div>
         );
       })}
     </div>

@@ -12,13 +12,13 @@ const styleHeader: React.CSSProperties = {
 };
 
 const styleInputForm: React.CSSProperties = {
-  gridColumn: "3 / 5",
+  gridColumn: "2 / 4",
   gridRow: "4 / 7",
 };
 
 const styleInputList: React.CSSProperties = {
-  gridColumn: "6 / 9",
-  gridRow: "4 / 8",
+  gridColumn: "5 / 9",
+  gridRow: "3 / 7",
   overflow: "scroll",
 };
 
