@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import store from "store";
+
 import Header from "./components/Header";
 import "./App.css";
 import InputForm from "./components/InputForm";
@@ -12,12 +14,12 @@ const styleHeader: React.CSSProperties = {
 };
 
 const styleInputForm: React.CSSProperties = {
-  gridColumn: "2 / 4",
-  gridRow: "4 / 7",
+  gridColumn: "6 / 8",
+  gridRow: "3 / 6",
 };
 
 const styleInputList: React.CSSProperties = {
-  gridColumn: "5 / 9",
+  gridColumn: "2 / 5",
   gridRow: "3 / 7",
   overflow: "scroll",
 };
@@ -29,10 +31,16 @@ const styleFooter: React.CSSProperties = {
 
 const App = () => {
   const [dataForm, setDataForm] = useState(Array);
+  const [localItems, setLocalItems] = useState([]);
 
   useEffect(() => {
-    console.log(dataForm);
-  }, [dataForm]);
+    setLocalItems(store.get("List of Items"));
+  }, []);
+
+  useEffect(() => {
+    store.set("List of Items", dataForm);
+    store.set("List of Items", [...dataForm, ...localItems]);
+  }, [dataForm, localItems]);
 
   return (
     <div className="grid-container">
@@ -42,7 +50,11 @@ const App = () => {
         data={dataForm}
         setData={setDataForm}
       />
-      <InputList styleProp={styleInputList} formData={dataForm} />
+      <InputList
+        styleProp={styleInputList}
+        formData={dataForm}
+        localList={localItems}
+      />
       <Footer styleProp={styleFooter} />
     </div>
   );

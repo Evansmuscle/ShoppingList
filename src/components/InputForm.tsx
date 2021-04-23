@@ -8,7 +8,7 @@ type AppProps = {
   setData: React.Dispatch<SetStateAction<any[]>>;
 };
 
-const InputForm = ({ styleProp, data, setData }: AppProps) => {
+const InputForm = ({ styleProp, setData }: AppProps) => {
   const [itemType, setItemType] = useState("food");
   const [itemName, setItemName] = useState("");
 
@@ -16,7 +16,6 @@ const InputForm = ({ styleProp, data, setData }: AppProps) => {
     event.preventDefault();
 
     setData((data) => [...data, { itemType, itemName }]);
-    localStorage.setItem("List Data", data.toString());
   };
 
   return (
